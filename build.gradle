@@ -1,0 +1,46 @@
+buildscript {
+	repositories {
+		mavenCentral()
+		maven { url 'https://www.jitpack.io' }
+		maven { url 'https://files.minecraftforge.net/maven' }
+	}
+	dependencies {
+		//Change jitpack to moderniser when Forge uploads 1.13.2 MCPConfig
+		classpath 'com.github.unascribed:RiftGradle:73e7b0a'
+	}
+}
+
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.3.0'
+}
+
+apply plugin: 'net.minecraftforge.gradle.tweaker-client'
+apply plugin: 'java'
+
+group 'dev.intelligentcreations'
+version '1.0'
+archivesBaseName = 'Randore'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+	mavenCentral()
+    maven { url 'https://repo.unascribed.com' }
+	maven { url 'https://jitpack.io' }
+	flatDir {
+        dirs 'libs'
+    }
+}
+
+dependencies {
+	implementation 'com.github.unascribed:Rift:FINAL'
+    implementation 'net.insomniakitten.riftlin:Riftlin:0.3.0'
+}
+
+minecraft {
+	version = '1.13.2'
+	mappings = 'snapshot_20181106'
+	runDir = 'run'
+	tweakClass = 'org.dimdev.riftloader.launch.RiftLoaderClientTweaker'
+}

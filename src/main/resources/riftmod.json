@@ -1,0 +1,10 @@
+{
+    "id": "randore",
+    "name": "Rand'Ore",
+    "authors": [
+        "Peakstep"
+    ],
+    "listeners": [
+        "dev.intelligentcreations.randore.RandoreMod"
+    ]
+}
